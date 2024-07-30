@@ -1,19 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get the elements and type them appropriately
     const todoForm = document.getElementById('todo-form') as HTMLFormElement;
     const todoInput = document.getElementById('todo-input') as HTMLInputElement;
     const todoList = document.getElementById('todo-list') as HTMLUListElement;
 
-    // Define a type for a Todo item0
     interface Todo {
         id: number;
         text: string;
     }
 
-    // Initialize todos array with type Todo[]
     let todos: Todo[] = [];
 
-    // Add event listener for form submission
     todoForm.addEventListener('submit', (event: Event) => {
         event.preventDefault();
         addTodo();
@@ -46,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
             todoList.appendChild(li);
         });
 
-        // Attach event listeners for the new buttons
         document.querySelectorAll('.edit-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const id = Number((button as HTMLButtonElement).getAttribute('data-id'));
